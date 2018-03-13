@@ -424,7 +424,7 @@
         "UserData" : {
           "Fn::Base64": {
             "Fn::Join": [
-              "\n", [
+              "", [
                "#!/bin/bash \n",
                "export DATABASE_ROOT_USER=", { "Ref" : "DatabaseRootUser" }, "\n",
                "export DATABASE_ROOT_PASS=", { "Ref" : "DatabaseRootPass" }, "\n",
