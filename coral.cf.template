@@ -386,8 +386,8 @@
       "Type" : "AWS::EC2::Instance",
       "Properties": {
         "ImageId" : { "Fn::FindInMap" : [ "AWSRegionArch2AMI", { "Ref" : "AWS::Region" },
-                          { "Fn::FindInMap" : [ "AWSInstanceType2Arch", { "Ref" : "BastionInstanceType" }, "Arch" ] } ] },
-        "InstanceType"   : { "Ref" : "BastionInstanceType" },
+                          { "Fn::FindInMap" : [ "AWSInstanceType2Arch", { "Ref" : "CoralInstanceType" }, "Arch" ] } ] },
+        "InstanceType"   : { "Ref" : "CoralInstanceType" },
         "KeyName"        : { "Ref" : "KeyName" },
         "NetworkInterfaces": [{
           "DeviceIndex": "0",
