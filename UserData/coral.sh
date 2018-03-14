@@ -52,3 +52,13 @@ mysql -e "FLUSH PRIVILEGES" >> /root/install-log.txt 2>&1
  yum -y install php56 >> /root/install-log.txt 2>&1
  yum -y install php56-mysqlnd >> /root/install-log.txt 2>&1
  service httpd restart >> /root/install-log.txt 2>&1
+
+ #Install git
+ yum -y install git
+
+ #Clone Coral
+ cd /var/www
+ git clone https://github.com/coral-erm/coral.git
+ mv coral html
+ cd html
+ chmod -R apache:apache *
