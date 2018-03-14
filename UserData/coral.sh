@@ -42,3 +42,8 @@ chkconfig httpd on >> /root/install-log.txt 2>&1
 yum -y install mysql-server >> /root/install-log.txt 2>&1
 chkconfig mysqld on >> /root/install-log.txt 2>&1
 service mysqld start >> /root/install-log.txt 2>&1
+mysql -e "UPDATE mysql.user SET Password = PASSWORD('${DATABASE_ROOT_PASS}') WHERE User = 'root'" >> /root/install-log.txt 2>&1
+mysql -e "DROP USER ''@'localhost'" >> /root/install-log.txt 2>&1
+mysql -e "DROP USER ''@'$(hostname)'" >> /root/install-log.txt 2>&1
+mysql -e "DROP DATABASE test" >> /root/install-log.txt 2>&1
+mysql -e "FLUSH PRIVILEGES" >> /root/install-log.txt 2>&1
