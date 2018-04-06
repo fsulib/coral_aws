@@ -51,6 +51,7 @@ mysql -e "FLUSH PRIVILEGES" >> /root/install-log.txt 2>&1
 # Install php
  yum -y install php56 >> /root/install-log.txt 2>&1
  yum -y install php56-mysqlnd >> /root/install-log.txt 2>&1
+ yum -y install php56-mbstring >> /root/install-log.txt 2>&1
  service httpd restart >> /root/install-log.txt 2>&1
 
  #Install git
