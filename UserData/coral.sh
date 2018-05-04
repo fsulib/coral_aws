@@ -33,6 +33,25 @@ ln -s /usr/share/zoneinfo/US/Eastern /etc/localtime
 # Run updates
 yum -y update > /root/updates.txt
 
+# Install AWS agent
+cd /root
+mkdir -p aws_agent >> /root/install-log.txt 2>&1
+cd aws_agent >> /root/install-log.txt 2>&1
+wget https://d1wk0tztpsntt1.cloudfront.net/linux/latest/install
+chmod 744 install >> /root/install-log.txt 2>&1
+bash install >> /root/install-log.txt 2>&1
+
+# Create SSH users group
+groupadd -g 505 sshusers
+usermod -a -G sshusers ec2-user
+cp /etc/ssh/sshd_config /etc/ssh/sshd_config.orig
+printf "\n" >> /etc/ssh/sshd_config
+printf "# Make an allowance for sshusers; C. Birmingham II" >> /etc/ssh/sshd_config
+printf "\nAllowGroups sshusers" >> /etc/ssh/sshd_config
+sed -i 's/PermitRootLogin forced-commands-only/#PermitRootLogin forced-commands-only/g' /etc/ssh/sshd_config
+sed -i 's/#PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
+/etc/init.d/sshd restart >> /root/install-log.txt 2>&1
+
 # Install Apache
 yum -y install httpd24 > /root/install-log.txt 2>&1
 service httpd start >> /root/install-log.txt 2>&1
