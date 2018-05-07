@@ -41,6 +41,9 @@ wget https://d1wk0tztpsntt1.cloudfront.net/linux/latest/install
 chmod 744 install >> /root/install-log.txt 2>&1
 bash install >> /root/install-log.txt 2>&1
 
+# Install tools to manage SELinux
+yum -y install selinux-policy selinux-policy-targeted policy policycoreutils-python setools tree >> /root/selinux-tools-log.txt 2>&1
+
 # Create SSH users group
 groupadd -g 505 sshusers
 usermod -a -G sshusers ec2-user
