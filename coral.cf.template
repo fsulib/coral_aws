@@ -36,9 +36,7 @@
       "Type": "String",
       "Description": "The password for the database root user",
       "MinLength": "8",
-      "MaxLength": "41",
-      "AllowedPattern" : "[a-zA-Z0-9]*",
-      "ConstraintDescription" : "must contain only alphanumeric characters"
+      "MaxLength": "41"
     },
     "CoralDatabaseUser": {
       "Default": "coraluser",
@@ -64,9 +62,7 @@
       "Type": "String",
       "Description": "The password for the Coral admin user",
       "MinLength": "8",
-      "MaxLength": "41",
-      "AllowedPattern" : "[a-zA-Z0-9]*",
-      "ConstraintDescription" : "must contain only alphanumeric characters"
+      "MaxLength": "41"
     },
     "CoralAdminEmail": {
       "Default": "no-reply@example.com",
