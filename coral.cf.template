@@ -405,15 +405,15 @@
           {
             "DeviceName" : "/dev/sdb",
             "Ebs" : {
-              "VolumeSize" : "10",
-              "DeleteOnTermination" : "true",
+              "VolumeSize" : "120",
+              "DeleteOnTermination" : "false",
             }
           },
           {
             "DeviceName" : "/dev/sdc",
             "Ebs" : {
-              "VolumeSize" : "5",
-              "DeleteOnTermination" : "true",
+              "VolumeSize" : "50",
+              "DeleteOnTermination" : "false",
             }
           }
         ],
@@ -447,7 +447,8 @@
     "CoralEIP" : {
       "Type": "AWS::EC2::EIP",
       "Properties" : {
-        "InstanceId" : { "Ref" : "Coral"}
+        "InstanceId" : { "Ref" : "Coral"},
+        "EIP" : "18.233.179.209"
       }
     },
 
