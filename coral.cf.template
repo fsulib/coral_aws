@@ -439,7 +439,7 @@
     },
 
     "CoralEIP" : {
-      "Type": "AWS::EC2::EIP",
+      "Type": "AWS::EC2::EIPAssociation",
       "Properties" : {
         "InstanceId" : { "Ref" : "Coral"},
         "EIP" : "18.233.179.209"
