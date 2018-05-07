@@ -48,9 +48,7 @@
       "Type": "String",
       "Description": "The password for the Coral database",
       "MinLength": "8",
-      "MaxLength": "41",
-      "AllowedPattern" : "[a-zA-Z0-9]*",
-      "ConstraintDescription" : "must contain only alphanumeric characters"
+      "MaxLength": "41"
     },
     "CoralAdminUser": {
       "Default": "admin",
