@@ -85,4 +85,5 @@ mysql -e "FLUSH PRIVILEGES" >> /root/install-log.txt 2>&1
  tar xzvf v3.0.0.tar.gz >> /root/coral-install.log 2>&1
  mv coral-3.0.0 html >> /root/coral-install.log 2>&1
  cd html >> /root/coral-install.log 2>&1
- chmod -R apache:apache * >> /root/coral-install.log 2>&1
+ mv coral-3.0.0 coral >> /root/coral-install.log 2>&!
+ chown -R apache:apache * >> /root/coral-install.log 2>&1
