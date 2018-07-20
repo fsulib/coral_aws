@@ -80,8 +80,9 @@ mysql -e "FLUSH PRIVILEGES" >> /root/install-log.txt 2>&1
  yum -y install git
 
  #Clone Coral
- cd /var/www
- git clone https://github.com/coral-erm/coral.git
- mv coral html
- cd html
- chmod -R apache:apache *
+ cd /var/www > /root/coral-install.log 2>&1
+ wget https://github.com/coral-erm/coral/archive/v3.0.0.tar.gz >> /root/coral-install.log 2>&1
+ tar xzvf v3.0.0.tar.gz >> /root/coral-install.log 2>&1
+ mv coral-3.0.0 html >> /root/coral-install.log 2>&1
+ cd html >> /root/coral-install.log 2>&1
+ chmod -R apache:apache * >> /root/coral-install.log 2>&1
